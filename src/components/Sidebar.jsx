@@ -15,7 +15,7 @@ const Sidebar = ({ categories, getTitle }) => {
               }}
               className={`p-2 w-28 m-2 border-2 border-gray-300 text-gray-500 rounded-xl text-xs hover:bg-orange-300 hover:text-white hover:border-white ${
                 active == item.title
-                  ? "bg-orange-400 border-white text-gray-100"
+                  ? "bg-orange-400 border-white text-white"
                   : ""
               }`}
             >
