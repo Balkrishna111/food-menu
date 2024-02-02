@@ -10,7 +10,7 @@ const Card = ({ food }) => {
   const [description, setDescription] = useState(false);
   return (
     <div className='relative'>
-      <div className='card max-w-40 m-4 p-2 border-2 border-orange-400 rounded-xl text-gray-600'>
+      <div className='card max-w-36 m-4 p-2 border-2 border-orange-400 rounded-xl text-gray-600 min-h-80'>
         <div className='img my-1'>
           <img className=' rounded-lg' src={food.img} alt='food/img' />
         </div>
@@ -37,7 +37,7 @@ const Card = ({ food }) => {
       {/* details container */}
 
       {description && (
-        <div className='absolute top-4 w-full -left-24'>
+        <div className='absolute top-4 z-10 -left-24'>
           <div className='menu-details w-3/4 max-w-96 flex flex-col justify-center bg-orange-200 items-center border-2 border-orange-400 rounded-lg p-8 relative'>
             <div className='cross'>
               <RxCross2

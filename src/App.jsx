@@ -23,14 +23,14 @@ function App() {
     { title: "Sausages", id: "sausages" },
     { title: "Steaks", id: "steaks" },
   ];
-  const [header, setHeader] = useState({ title: "Our Foods", id: "our-foods" });
+  const [header, setHeader] = useState({ title: "Ice Cream", id: "ice-cream" });
 
-  const getTitle = (title, id) => {
+  const getTitle = (data) => {
     useEffect(() => {
-      setHeader({ title: title, id: id });
-    }, [title]);
+      setHeader(data);
+    });
   };
-  // console.log(header.id);
+
   return (
     <Provider store={store}>
       <Navbar categories={categories} />
@@ -38,7 +38,7 @@ function App() {
         categories={categories}
         id={header.id}
         getTitle={getTitle}
-        header={header.title}
+        active={header}
       />
     </Provider>
   );
