@@ -3,7 +3,6 @@ import { RxCross2 } from "react-icons/rx";
 import Menu from "./Menu";
 import Sidebar from "./Sidebar";
 import { useState } from "react";
-// import SidebarToggle from "./SidebarToggle";
 
 const Body = ({ categories, getTitle, active }) => {
   const [sidebarToggle, setSidebarToggle] = useState(false);
