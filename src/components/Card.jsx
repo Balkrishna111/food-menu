@@ -10,7 +10,7 @@ const Card = ({ food }) => {
   const [description, setDescription] = useState(false);
   return (
     <div className='relative'>
-      <div className='card max-w-36 m-4 p-2 border-2 border-orange-400 rounded-xl text-gray-600 min-h-80'>
+      <div className='card max-w-36 m-4 p-2 border-2 border-orange-400 rounded-xl text-gray-600 min-h-80 flex flex-col justify-between'>
         <div className='img my-1'>
           <img className=' rounded-lg' src={food.img} alt='food/img' />
         </div>

@@ -1,8 +1,4 @@
-import { useState } from "react";
-
-const Sidebar = ({ categories, getTitle }) => {
-  const [active, setActive] = useState({ title: "Ice Cream", id: "ice-cream" });
-  getTitle(active);
+const Sidebar = ({ categories, active, setActive }) => {
   return (
     <div className='p-1 flex flex-col items-center min-h-full'>
       <h1 className='inline-block my-3 text-gray-600'>Categories</h1>
