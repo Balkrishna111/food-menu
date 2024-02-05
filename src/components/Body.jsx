@@ -28,7 +28,7 @@ const Body = ({ categories, getTitle }) => {
       )}
       {sidebarToggle && (
         <RxCross2
-          className='z-40 absolute top-1 left-28 text-red-600'
+          className='z-40 absolute top-1 left-2 text-red-600'
           size={20}
           onClick={(e) => {
             e.preventDefault();
