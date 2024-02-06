@@ -1,13 +1,21 @@
 import { IoStarSharp } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToBasket } from "../app/features/foodSlice";
 const Card = ({ food }) => {
   let ratingArr = [];
+
+  const dispatch = useDispatch();
 
   for (let index = 0; index < food.rate; index++) {
     ratingArr.push(<IoStarSharp key={index} className='text-orange-400' />);
   }
   const [description, setDescription] = useState(false);
+
+  const handleAddToCart = () => {
+    dispatch(addToBasket(food));
+  };
   return (
     <div className='relative'>
       <div className='card max-w-36 m-4 p-2 border-2 border-orange-400 rounded-xl text-gray-600 min-h-80 flex flex-col justify-between'>
@@ -22,7 +30,10 @@ const Card = ({ food }) => {
               return item;
             })}
           </div>
-          <button className='bg-orange-400 w-full rounded-full p-1 my-2 text-white hover:bg-orange-300'>
+          <button
+            onClick={handleAddToCart}
+            className='bg-orange-400 w-full rounded-full p-1 my-2 text-white hover:bg-orange-300'
+          >
             Add To Cart
           </button>
           <button

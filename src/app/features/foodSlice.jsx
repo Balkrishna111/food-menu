@@ -8,14 +8,15 @@ const initialState = {
 };
 
 const computeQuantity = (data) => {
-  return data.basket.length();
+  return data.basket.length;
 };
 
 const computePrice = (data) => {
-  let total;
+  let total = 0;
   data.basket.forEach((item) => {
-    total += item.price;
+    total = total + item.price;
   });
+  return total;
 };
 
 const basketSlice = createSlice({
@@ -27,13 +28,15 @@ const basketSlice = createSlice({
     },
     addToBasket: (state, action) => {
       state.basket.push(action.payload);
-      computeQuantity(state);
-      computePrice(state);
+      state.totalQuantity = computeQuantity(state);
+      state.totalPrice = computePrice(state);
     },
     removeFromBasket: (state, action) => {
-      state.basket.filter((item) => item.id !== action.payload);
-      computeQuantity(state);
-      computePrice(state);
+      state.basket.filter((item) => {
+        item !== action.payload;
+      });
+      state.totalQuantity = computeQuantity(state);
+      state.totalPrice = computePrice(state);
     },
   },
 });
