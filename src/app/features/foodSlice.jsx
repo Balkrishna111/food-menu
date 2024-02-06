@@ -33,7 +33,7 @@ const basketSlice = createSlice({
     },
     removeFromBasket: (state, action) => {
       state.basket.filter((item) => {
-        item !== action.payload;
+        item.name !== action.payload.name;
       });
       state.totalQuantity = computeQuantity(state);
       state.totalPrice = computePrice(state);

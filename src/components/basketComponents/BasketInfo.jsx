@@ -3,7 +3,7 @@ const BasketInfo = () => {
   const quantity = useSelector((state) => state.totalQuantity);
   const totalPrice = useSelector((state) => state.totalPrice);
   return (
-    <div className='border-0 text-sm lg:text-lg font-bold bg-orange-400 py-2 px-4 text-white outline-none lg:h-5/6 '>
+    <div className='border-0 text-sm lg:text-lg font-bold bg-orange-400 py-2 px-4 text-white outline-none'>
       <h1 className='font-bold border-b-2 border-white text-center text-white mb-4'>
         Order Summary
       </h1>
