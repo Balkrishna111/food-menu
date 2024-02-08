@@ -32,9 +32,9 @@ const basketSlice = createSlice({
       state.totalPrice = computePrice(state);
     },
     removeFromBasket: (state, action) => {
-      state.basket.filter((item) => {
-        item.name !== action.payload.name;
-      });
+      state.basket = state.basket.filter(
+        (item) => item.id !== action.payload.id
+      );
       state.totalQuantity = computeQuantity(state);
       state.totalPrice = computePrice(state);
     },

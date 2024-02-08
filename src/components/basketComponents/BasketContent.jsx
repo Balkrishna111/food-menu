@@ -49,7 +49,10 @@ const BasketContent = () => {
                   <MdDelete
                     size={25}
                     className='text-orange-600 hover:text-red-600 cursor-pointer'
-                    onClick={() => dispatch(removeFromBasket(item))}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      dispatch(removeFromBasket(item));
+                    }}
                   />
                 </div>
               </div>
