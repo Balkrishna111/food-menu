@@ -27,7 +27,9 @@ const basketSlice = createSlice({
       state.data = action.payload;
     },
     addToBasket: (state, action) => {
-      state.basket.push(action.payload);
+      let data = action.payload;
+      data = { ...data, quantity: 1 };
+      state.basket.push(data);
       state.totalQuantity = computeQuantity(state);
       state.totalPrice = computePrice(state);
     },
@@ -38,9 +40,30 @@ const basketSlice = createSlice({
       state.totalQuantity = computeQuantity(state);
       state.totalPrice = computePrice(state);
     },
+    increaseQuantity: (state, action) => {
+      state.basket.map((item) => {
+        if (item.id == action.payload) {
+          console.log(item.quantity);
+          return { ...item, quantity: item.quantity + 1 };
+        } else return item;
+      });
+    },
+    decreaseQuantity: (state, action) => {
+      state.basket.map((item) => {
+        if (item.id == action.payload) {
+          return { ...item, quantity: item.quantity - 1 };
+        } else return item;
+      });
+    },
   },
 });
 
-export const { addToBasket, addToData, removeFromBasket } = basketSlice.actions;
+export const {
+  addToBasket,
+  addToData,
+  removeFromBasket,
+  increaseQuantity,
+  decreaseQuantity,
+} = basketSlice.actions;
 
 export default basketSlice.reducer;
