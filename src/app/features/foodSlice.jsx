@@ -30,6 +30,7 @@ const basketSlice = createSlice({
       let data = action.payload;
       data = { ...data, quantity: 1 };
       state.basket.push(data);
+
       state.totalQuantity = computeQuantity(state);
       state.totalPrice = computePrice(state);
     },
