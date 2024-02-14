@@ -27,9 +27,13 @@ const basketSlice = createSlice({
       state.data = action.payload;
     },
     addToBasket: (state, action) => {
-      let data = action.payload;
-      data = { ...data, quantity: 1 };
-      state.basket.push(data);
+      if (state.basket.includes(action.payload)) {
+        state.basket.push(state.payload);
+      } else {
+        let data = action.payload;
+        data = { ...data, quantity: 1 };
+        state.basket.push(data);
+      }
 
       state.totalQuantity = computeQuantity(state);
       state.totalPrice = computePrice(state);
