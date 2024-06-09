@@ -1,6 +1,7 @@
 import { SlBasket } from "react-icons/sl";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { CiSearch } from "react-icons/ci";
 
 const Navbar = () => {
   const basketLength = useSelector((state) => state.basket.length);
@@ -11,6 +12,15 @@ const Navbar = () => {
           <Link to='/'>
             <h1>Logo</h1>
           </Link>
+        </div>
+
+        <div className='search-bar flex justify-center items-center relative'>
+          <input
+            type='text'
+            placeholder='Search Here'
+            className='px-3 py-1 border rounded-xl bg-white'
+          />
+          <CiSearch size={20} className='absolute text-orange-500 right-2' />
         </div>
         <div className='nav-links font-bold flex items-center gap-8 justify-center'>
           <Link to='/'>
